@@ -1,5 +1,3 @@
-import json
-
 data = {
     "time": 1634747720,
     "id": 1,
