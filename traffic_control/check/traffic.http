@@ -1,12 +1,12 @@
-GET https://api.via-dolorosa.ru/rc/1/full_info
+GET https://api.via-dolorosa.ru/rc/90459/full_info
 Accept: application/json
 
 ###
 
-GET https://api.via-dolorosa.ru/rc/1/status
+GET https://api.via-dolorosa.ru/rc/90459/status
 Accept: application/json
 
 ###
 
-POST https://api.via-dolorosa.ru/rc/1/custom_phase_program
+POST https://api.via-dolorosa.ru/rc/90459/custom_phase_program
 Accept: application/json
