@@ -1,0 +1,2 @@
+GET https://api.via-dolorosa.ru/rc/1/full_info
+Accept: application/json
