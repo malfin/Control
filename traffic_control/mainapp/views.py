@@ -3,8 +3,6 @@ from django.shortcuts import render
 import json
 
 
-
-
 # https://api.via-dolorosa.ru/rc/1/full_info
 def index(request):
     try:
