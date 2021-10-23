@@ -7,7 +7,10 @@ from requests import HTTPError
 
 
 def index(request):
-    return render(request, 'mainapp/index.html')
+    context = {
+        'title': 'главная',
+    }
+    return render(request, 'mainapp/index.html', context)
 
 
 def req1(request):
@@ -64,7 +67,7 @@ def req1(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req1',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -128,7 +131,7 @@ def req2(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req2',
         'response': response2,
         'jsons_full': jsons_full2,
         'json': jsons2,
@@ -192,7 +195,7 @@ def req3(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req3',
         'response': response3,
         'jsons_full': jsons_full3,
         'json': jsons3,
@@ -256,7 +259,7 @@ def req4(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req4',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -320,7 +323,7 @@ def req5(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req5',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -384,7 +387,7 @@ def req6(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req6',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -448,7 +451,7 @@ def req7(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req7',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -512,7 +515,7 @@ def req8(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req8',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -576,7 +579,7 @@ def req9(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req9',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
@@ -640,7 +643,7 @@ def req10(request):
         print('NO')
 
     context = {
-        'title': 'главная',
+        'title': 'req10',
         'response': response,
         'jsons_full': jsons_full,
         'json': jsons,
