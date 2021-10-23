@@ -1,0 +1,32 @@
+{% extends 'mainapp/base.html' %}
+{% block content %}
+    {#    <p>URL :{{ response }}</p>#}
+    {#    <p id="full_info_90451">JSON : name: {{ json }}</p>#}
+
+    <div class="d-grid gap-2">
+        <p id="send_status_90451" class="text-muted"></p>
+        <p>{{ jsons_full.time }}</p>
+        <p>{{ jsons_full.id }}</p>
+        <p>{{ jsons_full.rc_created_at }}</p>
+        <p>{{ jsons_full.rc_updated_at }}</p>
+        <p>{{ jsons_full.num_tl }}</p>
+        <p>{{ jsons_full.is_enabled }}</p>
+        <p>{{ jsons_full.is_alarmed }}</p>
+        <p>{{ jsons_full.type }}</p>
+        <p>{{ jsons_full.protocol }}</p>
+        <p>{{ jsons_full.conn_status }}</p>
+        <p>{{ jsons_full.mode }}</p>
+        <p>{{ jsons_full.program_id }}</p>
+        <p>{{ jsons_full.keep_phase_id }}</p>
+        <p>{{ jsons_full.changed_time_at }}</p>
+        <p>{{ jsons_full.real_mode }}</p>
+        <p>{{ jsons_full.real_program_id }}</p>
+        <p>{{ jsons_full.real_keep_phase_id }}</p>
+        <p>{{ jsons_full.program_created_at }}</p>
+        <p>{{ jsons_full.program_updated_at }}</p>
+        <p>{{ jsons_full.t_cycle }}</p>
+        <p>{{ jsons_full.program_type }}</p>
+        <p>phases: {{ s1 }}</p>
+        <p>{{ jsons_full.start_phase_id }}</p>
+    </div>
+{% endblock %}
