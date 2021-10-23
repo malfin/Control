@@ -4,6 +4,8 @@ import mainapp.views as mainapp
 
 app_name = 'mainapp'
 
-urlpatterns = [
+urlpatterns = {
     path('', mainapp.index, name='index'),
-]
+    path('req1', mainapp.req1),
+    path('req2', mainapp.req2),
+}
