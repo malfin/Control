@@ -7,11 +7,13 @@ from requests import HTTPError
 
 
 def index(request):
-    global response
     try:
         response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
         response.raise_for_status()
         jsons = response.json()
+        response_full.raise_for_status()
+        jsons_full = response_full.json()
         phase_id = jsons['current_phase_id']
         print(phase_id)
         s1 = []
@@ -60,6 +62,7 @@ def index(request):
     context = {
         'title': 'главная',
         'response': response,
+        'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
 
