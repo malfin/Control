@@ -82,7 +82,7 @@ def req2(request):
         jsons2 = response2.json()
         response_full2.raise_for_status()
         jsons_full2 = response_full2.json()
-        phase_id2 = jsons['current_phase_id']
+        phase_id2 = jsons2['current_phase_id']
         print(phase_id2)
         s1 = []
         # if phase_id == 1:
