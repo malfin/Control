@@ -17,115 +17,123 @@
         </li>
     </ul>
 </header>
-{% block content %}
+<div class="container">
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
+</div>
+
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
 <script>
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90451").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90451/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90452").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90452/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90453").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90453/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90454").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90454/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90455").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90455/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90456").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90456/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90457").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90457/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90458").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90458/full_info", true);
-        xhttp.send();
-    }, 2500);
+    $(".status_90451").click(function () {
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("send_status_90451").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90451/status", true);
+            xhttp.send();
+        }, 3000);
+    });
+    /*
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90452").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90452/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90453").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90453/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90454").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90454/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90455").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90455/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90456").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90456/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90457").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90457/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90458").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90458/full_info", true);
+            xhttp.send();
+        }, 2500);
 
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90459").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90459/full_info", true);
-        xhttp.send();
-    }, 2500);
-    setInterval(function () {
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                document.getElementById("full_info_90460").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90460/full_info", true);
-        xhttp.send();
-    }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90459").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90459/full_info", true);
+            xhttp.send();
+        }, 2500);
+        setInterval(function () {
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("full_info_90460").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90460/full_info", true);
+            xhttp.send();
+        }, 2500);*/
 </script>
 </body>
 </html>

@@ -9,16 +9,20 @@ from requests import HTTPError
 def index(request):
     global response
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
         response.raise_for_status()
-        json = response.json()
+        jsons = response.json()
+        phase_id = jsons['current_phase_id']
+        print(phase_id)
+        # if phase_id == 1:
+
     except Exception:
         print('NO')
 
     context = {
         'title': 'главная',
         'response': response,
-        'json': json,
+        'json': jsons,
 
     }
     return render(request, 'mainapp/index.html', context)

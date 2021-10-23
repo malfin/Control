@@ -22,6 +22,7 @@ list_rc = [
 while True:
     try:
         response = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
         response.raise_for_status()
         # access JSOn content
         jsonResponse = response.json()
