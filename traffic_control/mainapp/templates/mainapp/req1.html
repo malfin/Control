@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col">
                 <h3>Полная информация</h3>
-                {% if jsons_full %}
+                {% if jsons_full.time %}
                     <p>Time: {{ jsons_full.time }}</p>
                     <p>ID: {{ jsons_full.id }}</p>
                     <p>Created_AT: {{ jsons_full.rc_created_at }}</p>
@@ -34,12 +34,16 @@
             </div>
             <div class="col">
                 <h3>Статус</h3>
-                <p>{{ json }}</p>
+                {% if json %}
+                    <p>{{ json }}</p>
+                {% else %}
+                    <p>Ошибка на сервере 500/502</p>
+                {% endif %}
             </div>
             <div class="col">
                 <h3>Фазы</h3>
                 {% if s1 %}
-                    <p>phases: {{ s1 }}</p>
+                    <p>{{ s1 }}</p>
                 {% else %}
                     <p>Ошибка на сервере 500/502</p>
                 {% endif %}

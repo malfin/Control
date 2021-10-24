@@ -14,20 +14,14 @@ def index(request):
 
 
 def req1(request):
-    global jsons_full
-    # global response
-    # global jsons
-    # global s1
     try:
         response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
         response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
-        if response_full.status_code and response.status_code == 200:
+        if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
-            response_full.raise_for_status()
-            jsons_full = response_full.json()
             phase_id = jsons['current_phase_id']
-            print(phase_id)
+            # print(phase_id)
             s1 = []
             # if phase_id == 1:
             if phase_id == 1:
@@ -67,10 +61,14 @@ def req1(request):
                 }]
             else:
                 print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            jsons_full = 'Ошибка на сервере 500/502'
+            jsons_full = 'Ошибка на сервере статус 500/502'
             jsons = 'Ошибка на сервере 500/502'
-            print('Ошибка на сервере 500/502')
             s1 = []
     except Exception:
         print('NO')
@@ -88,62 +86,69 @@ def req1(request):
 
 def req2(request):
     try:
-        response2 = requests.get('https://api.via-dolorosa.ru/rc/90452/status')
-        response_full2 = requests.get('https://api.via-dolorosa.ru/rc/90452/full_info')
-        response2.raise_for_status()
-        jsons2 = response2.json()
-        response_full2.raise_for_status()
-        jsons_full2 = response_full2.json()
-        phase_id2 = jsons2['current_phase_id']
-        print(phase_id2)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id2 == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id2 == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id2 == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req2',
-        'response': response2,
-        'jsons_full': jsons_full2,
-        'json': jsons2,
+        'title': 'req1',
+        # 'text': text,
+        'jsons_full': jsons_full,
+        'json': jsons,
         's1': s1,
 
     }
@@ -152,62 +157,69 @@ def req2(request):
 
 def req3(request):
     try:
-        response3 = requests.get('https://api.via-dolorosa.ru/rc/90453/status')
-        response_full3 = requests.get('https://api.via-dolorosa.ru/rc/90453/full_info')
-        response3.raise_for_status()
-        jsons3 = response3.json()
-        response_full3.raise_for_status()
-        jsons_full3 = response_full3.json()
-        phase_id3 = jsons3['current_phase_id']
-        print(phase_id3)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id3 == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id3 == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id3 == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req3',
-        'response': response3,
-        'jsons_full': jsons_full3,
-        'json': jsons3,
+        'title': 'req1',
+        # 'text': text,
+        'jsons_full': jsons_full,
+        'json': jsons,
         's1': s1,
 
     }
@@ -216,60 +228,67 @@ def req3(request):
 
 def req4(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90454/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90454/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req4',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
@@ -280,60 +299,67 @@ def req4(request):
 
 def req5(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90455/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90455/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req5',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
@@ -344,60 +370,67 @@ def req5(request):
 
 def req6(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90456/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90456/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req6',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
@@ -408,60 +441,67 @@ def req6(request):
 
 def req7(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90457/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90457/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req7',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
@@ -472,60 +512,67 @@ def req7(request):
 
 def req8(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90458/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90458/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req8',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
@@ -536,60 +583,67 @@ def req8(request):
 
 def req9(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90459/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90459/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req9',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
@@ -600,60 +654,67 @@ def req9(request):
 
 def req10(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90460/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90460/full_info')
-        response.raise_for_status()
-        jsons = response.json()
-        response_full.raise_for_status()
-        jsons_full = response_full.json()
-        phase_id = jsons['current_phase_id']
-        print(phase_id)
-        s1 = []
-        # if phase_id == 1:
-        if phase_id == 1:
-            s1 = [{
-                "id": 1,
-                "t_osn": 32,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    1,
-                    2
-                ]}]
-        elif phase_id == 2:
-            s1 = [{
-                "id": 2,
-                "t_osn": 25,
-                "t_prom": 6,
-                "t_min": 4,
-                "is_hidden": False,
-                "directions": [
-                    3
-                ]
-            }]
-        elif phase_id == 3:
-            s1 = [{
-                "id": 3,
-                "t_osn": 15,
-                "t_prom": 6,
-                "t_min": 15,
-                "is_hidden": False,
-                "directions": [
-                    4,
-                    5,
-                    6
-                ]
-            }]
+        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        if response.status_code == 200:
+            response.raise_for_status()
+            jsons = response.json()
+            phase_id = jsons['current_phase_id']
+            # print(phase_id)
+            s1 = []
+            # if phase_id == 1:
+            if phase_id == 1:
+                s1 = [{
+                    "id": 1,
+                    "t_osn": 32,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        1,
+                        2
+                    ]}]
+            elif phase_id == 2:
+                s1 = [{
+                    "id": 2,
+                    "t_osn": 25,
+                    "t_prom": 6,
+                    "t_min": 4,
+                    "is_hidden": False,
+                    "directions": [
+                        3
+                    ]
+                }]
+            elif phase_id == 3:
+                s1 = [{
+                    "id": 3,
+                    "t_osn": 15,
+                    "t_prom": 6,
+                    "t_min": 15,
+                    "is_hidden": False,
+                    "directions": [
+                        4,
+                        5,
+                        6
+                    ]
+                }]
+            else:
+                print('Error')
+            if response_full.status_code == 200:
+                response_full.raise_for_status()
+                jsons_full = response_full.json()
+            else:
+                jsons_full = 'Ошибка на сервере 500/502'
         else:
-            print('Error')
-
+            jsons_full = 'Ошибка на сервере статус 500/502'
+            jsons = 'Ошибка на сервере 500/502'
+            s1 = []
     except Exception:
         print('NO')
 
     context = {
-        'title': 'req10',
-        'response': response,
+        'title': 'req1',
+        # 'text': text,
         'jsons_full': jsons_full,
         'json': jsons,
         's1': s1,
