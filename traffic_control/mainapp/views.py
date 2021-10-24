@@ -86,8 +86,8 @@ def req1(request):
 
 def req2(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90452/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90452/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -157,8 +157,8 @@ def req2(request):
 
 def req3(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90453/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90453/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -228,8 +228,8 @@ def req3(request):
 
 def req4(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90454/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90454/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -299,8 +299,8 @@ def req4(request):
 
 def req5(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90455/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90455/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -370,8 +370,8 @@ def req5(request):
 
 def req6(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90456/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90456/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -441,8 +441,8 @@ def req6(request):
 
 def req7(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90457/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90457/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -512,8 +512,8 @@ def req7(request):
 
 def req8(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90458/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90458/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -583,8 +583,8 @@ def req8(request):
 
 def req9(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90459/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90459/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
@@ -654,8 +654,8 @@ def req9(request):
 
 def req10(request):
     try:
-        response = requests.get('https://api.via-dolorosa.ru/rc/90451/status')
-        response_full = requests.get('https://api.via-dolorosa.ru/rc/90451/full_info')
+        response = requests.get('https://api.via-dolorosa.ru/rc/90460/status')
+        response_full = requests.get('https://api.via-dolorosa.ru/rc/90460/full_info')
         if response.status_code == 200:
             response.raise_for_status()
             jsons = response.json()
