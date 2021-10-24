@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta http-equiv="Refresh" content="5"/>
+    {#    <meta http-equiv="Refresh" content="5"/>#}
 
     <title>{{ title|capfirst }}</title>
     <!-- CSS only -->
@@ -55,6 +55,9 @@
         xhttp.open("GET", "https://api.via-dolorosa.ru/rc/90451/status", true);
         xhttp.send();
     });
+    setTimeout(function () {
+        location.reload();
+    }, 5000);
     /*
         setInterval(function () {
             let xhttp = new XMLHttpRequest();
